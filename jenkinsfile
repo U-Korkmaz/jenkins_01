@@ -1,6 +1,8 @@
 pipeline {
     agent any
-      
+    triggers {
+        pollSCM('H/5 * * * *') // SCM'yi 5 saniyede bir kontrol et
+    } 
     stages {
         stage('Build') {
             steps {
