@@ -1,32 +1,16 @@
 pipeline {
-    agent any
+    agent any // Jenkins ajanını belirle, bu işlemi nerede çalıştıracağınızı belirleyebilirsiniz.
+
     triggers {
         pollSCM('H/5 * * * *') // SCM'yi 5 saniyede bir kontrol et
-    } 
+    }
+
     stages {
         stage('Build') {
             steps {
-                echo "Building.."
-                sh '''
-                echo "doing build stuff.."
-                '''
+                // Bu aşamada projenizi derlemek veya diğer işlemleri gerçekleştirmek için komutları ekleyebilirsiniz.
             }
         }
-        stage('Test') {
-            steps {
-                echo "Testing.."
-                sh '''
-                echo "doing test stuff.."
-                '''
-            }
-        }
-        stage('Deliver') {
-            steps {
-                echo 'Deliver....'
-                sh '''
-                echo "doing delivery stuff.."
-                '''
-            }
-        }
+        // Diğer aşamaları buraya ekleyebilirsiniz.
     }
 }
